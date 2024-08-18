@@ -5,17 +5,24 @@ using UnityEngine;
 public class fuckFuckScaling : MonoBehaviour
 {
     // static fields
-    public static int playerScaleBracket;
+    public static int playerScaleBracket = 1;
     private static UnityEngine.Events.UnityEvent callScaleFUckback = new UnityEngine.Events.UnityEvent();
 
-    // 
+    // easy access to the plane to attach to
+    private static GameObject fuckPlane;
 
+    // has gravity
     [SerializeField]
     private bool isKinetic = false;
 
     [SerializeField]
     private int scaleBracket;
     private Rigidbody rb;
+
+    private void Awake()
+    {
+        fuckPlane = GameObject.FindGameObjectWithTag("planeController");
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -24,12 +31,22 @@ public class fuckFuckScaling : MonoBehaviour
         callScaleFUckback.AddListener(OnScaleChange);
 
         rb = GetComponent<Rigidbody>();
+
+        // fix up the rb automaticall
+        OnScaleChange();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+            PlayerSetScale(0);
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            PlayerSetScale(1);
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            PlayerSetScale(2);
     }
 
     // callback function to be used when player changes scale
@@ -38,18 +55,23 @@ public class fuckFuckScaling : MonoBehaviour
         // if the same scale, check what it should be
         if (playerScaleBracket == scaleBracket)
         {
-            rb.isKinematic = isKinetic;
+            rb.isKinematic = !isKinetic;
             rb.useGravity = isKinetic;
         }
         // if size bracket is different, make larger obj static and small obj kinetic
         else
         {
             if (playerScaleBracket < scaleBracket)
-                rb.isKinematic = false;
-            else
                 rb.isKinematic = true;
-            rb.useGravity = rb.isKinematic;
+            else
+                rb.isKinematic = false;
+            rb.useGravity = !rb.isKinematic;
         }
+
+        if (rb.isKinematic)
+            transform.SetParent(fuckPlane.transform);
+        else
+            transform.SetParent(null);
     }
 
     // when updating player scale, tell all the objs
