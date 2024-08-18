@@ -5,7 +5,7 @@ using UnityEngine;
 public class fuckFuckScaling : MonoBehaviour
 {
     // static fields
-    public static int playerScaleBracket;
+    public static int playerScaleBracket = 1;
     private static UnityEngine.Events.UnityEvent callScaleFUckback = new UnityEngine.Events.UnityEvent();
 
     // 
@@ -32,7 +32,14 @@ public class fuckFuckScaling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+            PlayerSetScale(0);
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            PlayerSetScale(1);
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            PlayerSetScale(2);
     }
 
     // callback function to be used when player changes scale
@@ -48,11 +55,10 @@ public class fuckFuckScaling : MonoBehaviour
         else
         {
             if (playerScaleBracket < scaleBracket)
-                rb.isKinematic = false;
-            else
                 rb.isKinematic = true;
+            else
+                rb.isKinematic = false;
             rb.useGravity = !rb.isKinematic;
-
         }
     }
 
