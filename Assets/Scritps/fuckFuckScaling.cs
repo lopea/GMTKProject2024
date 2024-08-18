@@ -24,6 +24,9 @@ public class fuckFuckScaling : MonoBehaviour
         callScaleFUckback.AddListener(OnScaleChange);
 
         rb = GetComponent<Rigidbody>();
+
+        // fix up the rb automaticall
+        OnScaleChange();
     }
 
     // Update is called once per frame
@@ -38,7 +41,7 @@ public class fuckFuckScaling : MonoBehaviour
         // if the same scale, check what it should be
         if (playerScaleBracket == scaleBracket)
         {
-            rb.isKinematic = isKinetic;
+            rb.isKinematic = !isKinetic;
             rb.useGravity = isKinetic;
         }
         // if size bracket is different, make larger obj static and small obj kinetic
@@ -48,7 +51,8 @@ public class fuckFuckScaling : MonoBehaviour
                 rb.isKinematic = false;
             else
                 rb.isKinematic = true;
-            rb.useGravity = rb.isKinematic;
+            rb.useGravity = !rb.isKinematic;
+
         }
     }
 
