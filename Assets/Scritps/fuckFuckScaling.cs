@@ -8,14 +8,21 @@ public class fuckFuckScaling : MonoBehaviour
     public static int playerScaleBracket = 1;
     private static UnityEngine.Events.UnityEvent callScaleFUckback = new UnityEngine.Events.UnityEvent();
 
-    // 
+    // easy access to the plane to attach to
+    private static GameObject fuckPlane;
 
+    // has gravity
     [SerializeField]
     private bool isKinetic = false;
 
     [SerializeField]
     private int scaleBracket;
     private Rigidbody rb;
+
+    private void Awake()
+    {
+        fuckPlane = GameObject.FindGameObjectWithTag("planeController");
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +67,11 @@ public class fuckFuckScaling : MonoBehaviour
                 rb.isKinematic = false;
             rb.useGravity = !rb.isKinematic;
         }
+
+        if (rb.isKinematic)
+            transform.SetParent(fuckPlane.transform);
+        else
+            transform.SetParent(null);
     }
 
     // when updating player scale, tell all the objs
