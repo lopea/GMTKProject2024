@@ -21,12 +21,15 @@ public class playerAudio : MonoBehaviour
     [SerializeField]
     private const float maxVolSpeed = 6f;
 
+    private ParticleSystem ptFx;
+
 
     // Start is called before the first frame update
     void Start()
     {
         audClips = Resources.LoadAll<AudioClip>("Audio/playerBall");
         aud = GetComponent<AudioSource>();
+        ptFx = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -39,6 +42,9 @@ public class playerAudio : MonoBehaviour
     {
         aud.clip = getRandSoundClip(collision.relativeVelocity.magnitude);
         aud.Play();
+
+        if (ptFx)
+            ptFx.Play();
     }
 
     // returns an audio clip that wasn't played immediately previously
