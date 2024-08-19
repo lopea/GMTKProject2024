@@ -99,7 +99,8 @@ public class fuckFuckScaling : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        ptFx.Play();
+        if (ptFx)
+            ptFx.Play();
 
         if (!aud.isPlaying)
         {

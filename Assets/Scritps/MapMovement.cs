@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
@@ -18,7 +19,8 @@ public class MapMovement : MonoBehaviour
 
     [SerializeField] private float MaxAngle = 45;
     [SerializeField] private float Speed = .1f;
-    
+
+    [SerializeField] private float resetSpeed = 10;
 
     private void OnEnable()
     {
@@ -42,9 +44,28 @@ public class MapMovement : MonoBehaviour
         var mouseDelta = playerInput.Player.MoveMap.ReadValue<Vector2>()*Speed;
         var cameraDir = Camera.main.transform.forward;
 
-        currHorizontalAngle = Mathf.Clamp(currHorizontalAngle + mouseDelta.x, -MaxAngle, MaxAngle);
-        currVerticalAngle = Mathf.Clamp(currVerticalAngle + mouseDelta.y, -MaxAngle, MaxAngle);
-        
+        if (Vector2.zero != mouseDelta)
+        {
+            currHorizontalAngle = Mathf.Clamp(currHorizontalAngle + mouseDelta.x, -MaxAngle, MaxAngle);
+            currVerticalAngle = Mathf.Clamp(currVerticalAngle + mouseDelta.y, -MaxAngle, MaxAngle);
+        }
+        else
+        {
+            if (!Mathf.Approximately(currHorizontalAngle, 0.0f))
+            {
+                currHorizontalAngle -= Mathf.Sign(currHorizontalAngle) * resetSpeed * Time.deltaTime;
+                if (Mathf.Approximately(currHorizontalAngle, 0.0f))
+                    currHorizontalAngle = 0.0f;
+            }
+            
+            if (!Mathf.Approximately(currVerticalAngle, 0.0f))
+            {
+                currVerticalAngle -= Mathf.Sign(currVerticalAngle) * resetSpeed * Time.deltaTime;
+                if (Mathf.Approximately(currVerticalAngle, 0.0f))
+                    currVerticalAngle = 0.0f;
+            }
+        }
+
         //rb.constraints = RigidbodyConstraints.FreezeRotationY;  
         
 
@@ -60,8 +81,7 @@ public class MapMovement : MonoBehaviour
 
 
        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, transform.rotation.eulerAngles.z);
+       
+       
     }
-    
-    
-    
 }
