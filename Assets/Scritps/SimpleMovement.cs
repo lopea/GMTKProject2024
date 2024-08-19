@@ -4,23 +4,40 @@ using UnityEngine;
 
 public class SimpleMovement : MonoBehaviour
 {
-    private Transform _playerTransform;
+
+    public float movementModifier = 5.0f;
+    
     private Rigidbody _rb;
     
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _playerTransform = GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        var speed = 20.0f * movementModifier * Time.deltaTime;
+        
         if (Input.GetKey(KeyCode.W))
         {
-            _rb.AddForce(Vector3.forward * (Time.deltaTime * 20f));
-            // _playerTransform.position += new Vector3(0, 0, 1.0f) * Time.deltaTime;
+            _rb.AddForce(Vector3.forward * speed);
+        }
+        
+        if (Input.GetKey(KeyCode.S))
+        {
+            _rb.AddForce(Vector3.back * speed);
+        }
+        
+        if (Input.GetKey(KeyCode.A))
+        {
+            _rb.AddForce(Vector3.left * speed);
+        }
+        
+        if (Input.GetKey(KeyCode.D))
+        {
+            _rb.AddForce(Vector3.right * speed);
         }
     }
 }
