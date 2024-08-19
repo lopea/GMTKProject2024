@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +20,7 @@ public class SimpleMovement : MonoBehaviour
     void Update()
     {
         var speed = 20.0f * movementModifier * Time.deltaTime;
-        
+        Console.WriteLine(speed);
         if (Input.GetKey(KeyCode.W))
         {
             _rb.AddForce(Vector3.forward * speed);
