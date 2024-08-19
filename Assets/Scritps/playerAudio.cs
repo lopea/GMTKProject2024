@@ -24,12 +24,16 @@ public class playerAudio : MonoBehaviour
     private ParticleSystem ptFx;
 
 
+    private static GameObject fuckPlane;
+
     private static float hitStopTimer;
-    private const float hitStopInterval = .06f;
+    private const float hitStopInterval = .03f;
 
     // Start is called before the first frame update
     void Start()
     {
+        fuckPlane = GameObject.FindGameObjectWithTag("planeController");
+
         audClips = Resources.LoadAll<AudioClip>("Audio/playerBall");
         aud = GetComponent<AudioSource>();
         ptFx = GetComponent<ParticleSystem>();
@@ -59,7 +63,8 @@ public class playerAudio : MonoBehaviour
         if (ptFx)
             ptFx.Play();
 
-        hitStopTimer = hitStopInterval;
+        if (collision.collider.gameObject != fuckPlane)
+            hitStopTimer = hitStopInterval;
     }
 
     // returns an audio clip that wasn't played immediately previously

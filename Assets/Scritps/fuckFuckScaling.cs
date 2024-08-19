@@ -105,7 +105,7 @@ public class fuckFuckScaling : MonoBehaviour
         if (ptFx)
             ptFx.Play();
 
-        if (!aud.isPlaying)
+        if (aud && !aud.isPlaying)
         {
             aud.pitch = Random.Range(.8f, 1.2f);
             aud.Play();
