@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class SimpleMovement : MonoBehaviour
 {
-
+#if UNITY_EDITOR
+    
     public float movementModifier = 5.0f;
     
     private Rigidbody _rb;
@@ -41,4 +42,5 @@ public class SimpleMovement : MonoBehaviour
             _rb.AddForce(Vector3.right * speed);
         }
     }
+#endif
 }

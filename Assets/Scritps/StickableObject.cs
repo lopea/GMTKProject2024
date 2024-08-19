@@ -39,19 +39,24 @@ public class StickableObject : MonoBehaviour
         {
             if (stickableObject != null)
                 transform.SetParent(stickableObject.transform.parent);
-        
+
             if (stickyBall != null)
+            {
                 transform.SetParent(stickyBall.transform);
+                stickyBall.AddObjectToAverageDistance(transform.position);
+            }
             
+#if UNITY_EDITOR
             transform.parent.GetComponent<SimpleMovement>().movementModifier += 25.0f;
+#endif
             isConnected = true;
             _rigidbody.isKinematic = true;
-            _rigidbody.constraints = RigidbodyConstraints.FreezePositionX | 
-                                     RigidbodyConstraints.FreezePositionY |
-                                     RigidbodyConstraints.FreezePositionZ |
-                                     RigidbodyConstraints.FreezeRotationX | 
-                                     RigidbodyConstraints.FreezeRotationY |
-                                     RigidbodyConstraints.FreezeRotationZ;
+            // _rigidbody.constraints = RigidbodyConstraints.FreezePositionX | 
+            //                          RigidbodyConstraints.FreezePositionY |
+            //                          RigidbodyConstraints.FreezePositionZ |
+            //                          RigidbodyConstraints.FreezeRotationX | 
+            //                          RigidbodyConstraints.FreezeRotationY |
+            //                          RigidbodyConstraints.FreezeRotationZ;
         }
     }
 
