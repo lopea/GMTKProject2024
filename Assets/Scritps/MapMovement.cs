@@ -50,7 +50,7 @@ public class MapMovement : MonoBehaviour
     {
         return dir;
     }
-    private void FixedUpdate()
+    private void Update()
     {
         var deltaSpeed = (Speed * currAcceleration) * Time.deltaTime;
         var mouseDelta = playerInput.Player.MoveMap.ReadValue<Vector2>() * deltaSpeed;

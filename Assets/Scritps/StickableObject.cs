@@ -55,9 +55,13 @@ public class StickableObject : MonoBehaviour
                 transform.SetParent(stickyBall.transform);
                 stickyBall.AddObjectToAverageDistance(transform.position);
             }
-            
+
 #if UNITY_EDITOR
-            transform.parent.GetComponent<SimpleMovement>().movementModifier += 25.0f;
+            var mov = transform.parent.GetComponent<SimpleMovement>();
+            if (null != mov)
+            {
+                mov.movementModifier += 25.0f;
+            }
 #endif
             isConnected = true;
             _rigidbody.isKinematic = true;

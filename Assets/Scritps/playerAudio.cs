@@ -63,8 +63,8 @@ public class playerAudio : MonoBehaviour
         if (ptFx)
             ptFx.Play();
 
-        if (collision.collider.gameObject != fuckPlane)
-            hitStopTimer = hitStopInterval;
+        /*if (collision.collider.gameObject != fuckPlane)
+            hitStopTimer = hitStopInterval;*/
     }
 
     // returns an audio clip that wasn't played immediately previously
