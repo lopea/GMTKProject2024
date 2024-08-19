@@ -9,6 +9,7 @@ public class StickableObject : MonoBehaviour
     [HideInInspector] 
     public bool isConnected = false;
     Rigidbody _rigidbody;
+    private fuckFuckScaling _scaling;
     
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,8 @@ public class StickableObject : MonoBehaviour
         {
             _rigidbody = gameObject.AddComponent<Rigidbody>();
         }
+        
+        _scaling = GetComponent<fuckFuckScaling>();
     }
 
     // Update is called once per frame
@@ -29,7 +32,14 @@ public class StickableObject : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (isConnected)
+        {
             return;
+        }
+
+        if (null != _scaling && _scaling.GetScaleBracket() > fuckFuckScaling.playerScaleBracket)
+        {
+            return;
+        }
         
         var stickableObject = collision.gameObject.GetComponent<StickableObject>();
         var stickyBall = collision.gameObject.GetComponent<StickyBall>();
@@ -51,12 +61,8 @@ public class StickableObject : MonoBehaviour
 #endif
             isConnected = true;
             _rigidbody.isKinematic = true;
-            // _rigidbody.constraints = RigidbodyConstraints.FreezePositionX | 
-            //                          RigidbodyConstraints.FreezePositionY |
-            //                          RigidbodyConstraints.FreezePositionZ |
-            //                          RigidbodyConstraints.FreezeRotationX | 
-            //                          RigidbodyConstraints.FreezeRotationY |
-            //                          RigidbodyConstraints.FreezeRotationZ;
+            Component.Destroy(_rigidbody);
+            
         }
     }
 

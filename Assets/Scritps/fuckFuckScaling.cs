@@ -108,4 +108,9 @@ public class fuckFuckScaling : MonoBehaviour
             aud.Play();
         }
     }
+
+    public int GetScaleBracket()
+    {
+        return scaleBracket;
+    }
 }
