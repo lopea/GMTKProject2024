@@ -40,7 +40,6 @@ public class MapMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
-
     
     private void FixedUpdate()
     {
