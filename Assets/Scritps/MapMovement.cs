@@ -17,7 +17,8 @@ public class MapMovement : MonoBehaviour
     private float currHorizontalAngle = 0;
     private float currVerticalAngle = 0;
     private float currAcceleration = 1;
-    
+
+    private Vector3 dir;
     [SerializeField] private float MaxAngle = 45;
     [SerializeField] private float Speed = .1f;
 
@@ -40,21 +41,33 @@ public class MapMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
-    
+
+    public bool IsMoving()
+    {
+        return dir != Vector3.zero;
+    }
+    public Vector3 GetInputDir()
+    {
+        return dir;
+    }
     private void FixedUpdate()
     {
         var deltaSpeed = (Speed * currAcceleration) * Time.deltaTime;
         var mouseDelta = playerInput.Player.MoveMap.ReadValue<Vector2>() * deltaSpeed;
-        var cameraDir = Camera.main.transform.forward;
+       
         
         if (Vector2.zero != mouseDelta)
         {
             currHorizontalAngle = Mathf.Clamp(currHorizontalAngle + mouseDelta.x, -MaxAngle, MaxAngle);
             currVerticalAngle = Mathf.Clamp(currVerticalAngle + mouseDelta.y, -MaxAngle, MaxAngle);
             currAcceleration += Mathf.Clamp(AccelerationSpeed * Time.deltaTime, 1, MaxAcceleration);
+            dir = new Vector3(mouseDelta.x, 0, mouseDelta.y);
+            dir.Normalize();
         }
         else
         {
+            dir = Vector3.zero;
+            
             if (Mathf.Abs(currHorizontalAngle) > 1f)
             {
                 currHorizontalAngle -= Mathf.Sign(currHorizontalAngle) * resetSpeed * Time.deltaTime;
@@ -75,11 +88,9 @@ public class MapMovement : MonoBehaviour
         //rb.constraints = RigidbodyConstraints.FreezeRotationY;  
         
 
-        //Project from the plane to the camera xz plane
-        Vector3 projectedCameraDir = Vector3.ProjectOnPlane(cameraDir, Vector3.up);
-        
+
         //get each axis to rotate the map (horizontal = sideways, vertical = forward/backward)
-        Vector3 rotationAxisHorizontal = projectedCameraDir.normalized;
+        Vector3 rotationAxisHorizontal = GetProjectedViewDir();
         Vector3 rotationAxisVertical = Vector3.Cross(Vector3.up,rotationAxisHorizontal);
         
         //The camera position to that plane represents the vector that we use as the front
@@ -90,5 +101,13 @@ public class MapMovement : MonoBehaviour
        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, transform.rotation.eulerAngles.z);
 
        
+    }
+
+    public Vector3 GetProjectedViewDir()
+    {
+        var cameraDir = Camera.main.transform.forward;
+        //Project from the plane to the camera xz plane
+        Vector3 projectedCameraDir = Vector3.ProjectOnPlane(cameraDir, Vector3.up);
+        return projectedCameraDir.normalized;
     }
 }

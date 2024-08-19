@@ -210,6 +210,11 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5910756421073709738, guid: ee3051fc3979ec840939e5be3e1584f2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -349,7 +354,7 @@ MonoBehaviour:
   MaxAngle: 20
   Speed: 0.3
   resetSpeed: 30
-  AccelerationSpeed: 5
+  AccelerationSpeed: 10
   MaxAcceleration: 30
 --- !u!23 &942698489
 MeshRenderer:
