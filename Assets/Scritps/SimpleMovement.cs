@@ -5,10 +5,12 @@ using UnityEngine;
 public class SimpleMovement : MonoBehaviour
 {
     private Transform _playerTransform;
+    private Rigidbody _rb;
     
     // Start is called before the first frame update
     void Start()
     {
+        _rb = GetComponent<Rigidbody>();
         _playerTransform = GetComponent<Transform>();
     }
 
@@ -17,7 +19,8 @@ public class SimpleMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            _playerTransform.position += new Vector3(0, 0, 1.0f) * Time.deltaTime;
+            _rb.AddForce(Vector3.forward * (Time.deltaTime * 20f));
+            // _playerTransform.position += new Vector3(0, 0, 1.0f) * Time.deltaTime;
         }
     }
 }
