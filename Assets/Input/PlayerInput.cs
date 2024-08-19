@@ -35,6 +35,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""EnableMoveMouse"",
+                    ""type"": ""Button"",
+                    ""id"": ""60d6276c-02f1-4150-b057-4aa2454500be"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -79,6 +88,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MoveMap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f4c1c3f4-4ef9-4cd7-83e6-c89ed47b3ae3"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnableMoveMouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -667,6 +687,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_MoveMap = m_Player.FindAction("MoveMap", throwIfNotFound: true);
+        m_Player_EnableMoveMouse = m_Player.FindAction("EnableMoveMouse", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -741,11 +762,13 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_MoveMap;
+    private readonly InputAction m_Player_EnableMoveMouse;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
         public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveMap => m_Wrapper.m_Player_MoveMap;
+        public InputAction @EnableMoveMouse => m_Wrapper.m_Player_EnableMoveMouse;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -758,6 +781,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @MoveMap.started += instance.OnMoveMap;
             @MoveMap.performed += instance.OnMoveMap;
             @MoveMap.canceled += instance.OnMoveMap;
+            @EnableMoveMouse.started += instance.OnEnableMoveMouse;
+            @EnableMoveMouse.performed += instance.OnEnableMoveMouse;
+            @EnableMoveMouse.canceled += instance.OnEnableMoveMouse;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -765,6 +791,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @MoveMap.started -= instance.OnMoveMap;
             @MoveMap.performed -= instance.OnMoveMap;
             @MoveMap.canceled -= instance.OnMoveMap;
+            @EnableMoveMouse.started -= instance.OnEnableMoveMouse;
+            @EnableMoveMouse.performed -= instance.OnEnableMoveMouse;
+            @EnableMoveMouse.canceled -= instance.OnEnableMoveMouse;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -948,6 +977,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMoveMap(InputAction.CallbackContext context);
+        void OnEnableMoveMouse(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
