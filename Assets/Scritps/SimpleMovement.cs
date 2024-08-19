@@ -17,7 +17,7 @@ public class SimpleMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            _playerTransform.position += new Vector3(0, 0, 1.0f);
+            _playerTransform.position += new Vector3(0, 0, 1.0f) * Time.deltaTime;
         }
     }
 }
