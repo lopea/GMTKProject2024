@@ -21,24 +21,50 @@ public class playerAudio : MonoBehaviour
     [SerializeField]
     private const float maxVolSpeed = 6f;
 
+    private ParticleSystem ptFx;
+
+
+    private static GameObject fuckPlane;
+
+    private static float hitStopTimer;
+    private const float hitStopInterval = .03f;
 
     // Start is called before the first frame update
     void Start()
     {
+        fuckPlane = GameObject.FindGameObjectWithTag("planeController");
+
         audClips = Resources.LoadAll<AudioClip>("Audio/playerBall");
         aud = GetComponent<AudioSource>();
+        ptFx = GetComponent<ParticleSystem>();
+
+        hitStopTimer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (hitStopTimer > 0)
+        {
+            hitStopTimer -= Time.unscaledDeltaTime;
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         aud.clip = getRandSoundClip(collision.relativeVelocity.magnitude);
         aud.Play();
+
+        if (ptFx)
+            ptFx.Play();
+
+        if (collision.collider.gameObject != fuckPlane)
+            hitStopTimer = hitStopInterval;
     }
 
     // returns an audio clip that wasn't played immediately previously

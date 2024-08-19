@@ -43,6 +43,8 @@ public class fuckFuckScaling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #if UNITY_EDITOR
+
         if (Input.GetKeyDown(KeyCode.Alpha0))
             PlayerSetScale(0);
 
@@ -51,6 +53,7 @@ public class fuckFuckScaling : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
             PlayerSetScale(2);
+        #endif
     }
 
     // callback function to be used when player changes scale
@@ -102,11 +105,13 @@ public class fuckFuckScaling : MonoBehaviour
         if (ptFx)
             ptFx.Play();
 
-        if (!aud.isPlaying)
+        if (aud && !aud.isPlaying)
         {
             aud.pitch = Random.Range(.8f, 1.2f);
             aud.Play();
         }
+
+        
     }
 
     public int GetScaleBracket()
