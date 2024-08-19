@@ -18,6 +18,7 @@ public class fuckFuckScaling : MonoBehaviour
     [SerializeField]
     private int scaleBracket;
     private Rigidbody rb;
+    private ParticleSystem ptFx;
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class fuckFuckScaling : MonoBehaviour
         callScaleFUckback.AddListener(OnScaleChange);
 
         rb = GetComponent<Rigidbody>();
+        ptFx = GetComponent<ParticleSystem>();
 
         // fix up the rb automaticall
         OnScaleChange();
@@ -91,5 +93,10 @@ public class fuckFuckScaling : MonoBehaviour
     {
         // when the object is removed, stop listening for scale changes
         callScaleFUckback.RemoveListener(OnScaleChange);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        ptFx.Play();
     }
 }
