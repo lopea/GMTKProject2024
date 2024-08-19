@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68787e9e-190f-4d17-9a4a-5b6e0b98071a" name="Changes" comment="" />
+    <list default="true" id="68787e9e-190f-4d17-9a4a-5b6e0b98071a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GMTKProject2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GMTKProject2024/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/PlayerInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/PlayerInput.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/PlayerInput.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Sandbox/JacobSandbox.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Sandbox/JacobSandbox.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scritps/MapMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scritps/MapMovement.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,7 +99,7 @@
       <option name="presentableId" value="Default" />
       <updated>1724015922985</updated>
       <workItem from="1724015930489" duration="2000" />
-      <workItem from="1724026681851" duration="7573000" />
+      <workItem from="1724026681851" duration="11096000" />
     </task>
     <servers />
   </component>
