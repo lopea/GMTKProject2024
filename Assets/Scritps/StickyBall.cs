@@ -20,12 +20,6 @@ public class StickyBall : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        // var obj = collision.gameObject.GetComponent<StickableObject>();
-        // if (obj == null || obj.isConnected)
-        //     return;
-        //
-        //
-        //
-        // Console.WriteLine("Collision");
+        
     }
 }
