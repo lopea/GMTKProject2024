@@ -24,18 +24,31 @@ public class playerAudio : MonoBehaviour
     private ParticleSystem ptFx;
 
 
+    private static float hitStopTimer;
+    private const float hitStopInterval = .06f;
+
     // Start is called before the first frame update
     void Start()
     {
         audClips = Resources.LoadAll<AudioClip>("Audio/playerBall");
         aud = GetComponent<AudioSource>();
         ptFx = GetComponent<ParticleSystem>();
+
+        hitStopTimer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (hitStopTimer > 0)
+        {
+            hitStopTimer -= Time.unscaledDeltaTime;
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -45,6 +58,8 @@ public class playerAudio : MonoBehaviour
 
         if (ptFx)
             ptFx.Play();
+
+        hitStopTimer = hitStopInterval;
     }
 
     // returns an audio clip that wasn't played immediately previously
