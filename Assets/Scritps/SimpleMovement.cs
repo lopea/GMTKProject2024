@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SimpleMovement : MonoBehaviour
 {
-
+#if UNITY_EDITOR
+    
     public float movementModifier = 5.0f;
     
     private Rigidbody _rb;
@@ -19,7 +21,7 @@ public class SimpleMovement : MonoBehaviour
     void Update()
     {
         var speed = 20.0f * movementModifier * Time.deltaTime;
-        
+        Console.WriteLine(speed);
         if (Input.GetKey(KeyCode.W))
         {
             _rb.AddForce(Vector3.forward * speed);
@@ -40,4 +42,5 @@ public class SimpleMovement : MonoBehaviour
             _rb.AddForce(Vector3.right * speed);
         }
     }
+#endif
 }

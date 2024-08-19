@@ -4,10 +4,23 @@ using UnityEngine;
 
 public class playerAudio : MonoBehaviour
 {
-    private AudioClip[] audClips;
-    private int prevAudIndex = 0;
+    private static AudioClip[] audClips;
+    private static int prevAudIndex = 0;
 
-    private AudioSource aud;
+    private static AudioSource aud;
+
+    [SerializeField]
+    private const float minVol = .2f;
+
+    [SerializeField]
+    private const float minVolSpeed = 1.2f;
+
+    [SerializeField]
+    private const float maxVol = .8f;
+
+    [SerializeField]
+    private const float maxVolSpeed = 6f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,15 +37,23 @@ public class playerAudio : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        aud.clip = getRandSoundClip();
+        aud.clip = getRandSoundClip(collision.relativeVelocity.magnitude);
         aud.Play();
     }
 
     // returns an audio clip that wasn't played immediately previously
-    private AudioClip getRandSoundClip()
+    private AudioClip getRandSoundClip(float speed)
     {
         aud.pitch = Random.Range(.8f, 1.2f);
         prevAudIndex = (prevAudIndex + Random.Range(1, audClips.Length)) % audClips.Length;
+
+        // calculate volume
+        if (speed < minVolSpeed)
+            aud.volume = minVol;
+        else if (speed > maxVolSpeed)
+            aud.volume = maxVol;
+        else
+            aud.volume = maxVol * speed / maxVolSpeed;
 
         return audClips[prevAudIndex];
     }

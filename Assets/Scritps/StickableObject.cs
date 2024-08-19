@@ -34,18 +34,29 @@ public class StickableObject : MonoBehaviour
         var stickableObject = collision.gameObject.GetComponent<StickableObject>();
         var stickyBall = collision.gameObject.GetComponent<StickyBall>();
 
-        if (null != stickableObject || null != stickyBall)
+        if ((null != stickableObject && stickableObject.isConnected) || 
+            null != stickyBall)
         {
-            _rigidbody.isKinematic = true;
-            isConnected = true;
-
             if (stickableObject != null)
                 transform.SetParent(stickableObject.transform.parent);
-        
-            if (stickyBall != null)
-                transform.SetParent(stickyBall.transform);
 
+            if (stickyBall != null)
+            {
+                transform.SetParent(stickyBall.transform);
+                stickyBall.AddObjectToAverageDistance(transform.position);
+            }
+            
+#if UNITY_EDITOR
             transform.parent.GetComponent<SimpleMovement>().movementModifier += 25.0f;
+#endif
+            isConnected = true;
+            _rigidbody.isKinematic = true;
+            // _rigidbody.constraints = RigidbodyConstraints.FreezePositionX | 
+            //                          RigidbodyConstraints.FreezePositionY |
+            //                          RigidbodyConstraints.FreezePositionZ |
+            //                          RigidbodyConstraints.FreezeRotationX | 
+            //                          RigidbodyConstraints.FreezeRotationY |
+            //                          RigidbodyConstraints.FreezeRotationZ;
         }
     }
 
