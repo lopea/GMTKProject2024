@@ -10,6 +10,8 @@ public class audioControls : MonoBehaviour
 
     private static AudioSource aud;
 
+    private static AudioSource bgm;
+
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -19,6 +21,8 @@ public class audioControls : MonoBehaviour
     void Start()
     {
         aud = GetComponent<AudioSource>();
+        bgm = transform.GetChild(0).GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -38,7 +42,7 @@ public class audioControls : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Minus))
             changeVolume(-.1f);
 
-        if (Input.GetKeyDown(KeyCode.Plus))
+        if (Input.GetKeyDown(KeyCode.Equals))
             changeVolume(.1f);
     }
 
@@ -53,10 +57,15 @@ public class audioControls : MonoBehaviour
     public static void toggleMute()
     {
         isMuted = !isMuted;
+
+        // update music
+        bgm.volume = getVolumeMod();
     }
 
     public static void changeVolume(float add)
     {
         volumeMod = Mathf.Clamp(volumeMod + add, 0, 1);
+
+        bgm.volume = getVolumeMod();
     }
 }
