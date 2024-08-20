@@ -222,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &3127875
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -297,6 +298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &7501411
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -628,6 +630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &53473709
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1197,6 +1200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &129497852
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1278,6 +1282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &138896377
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1636,6 +1641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &164881308
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1717,6 +1723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &191864161
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1798,6 +1805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &214956110
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2605,6 +2613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &304374358
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2913,6 +2922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &332061753
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3131,6 +3141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &352269273
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3212,6 +3223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &367623237
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3427,6 +3439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &395419672
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4337,6 +4350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &496728622
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4412,6 +4426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &498494045
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4577,6 +4592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &501399607
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5045,6 +5061,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &553934589
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5833,6 +5850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &634752662
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6031,6 +6049,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &655670292
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6561,6 +6580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &705553220
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7101,6 +7121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &737088843
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7342,6 +7363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &753213220
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7397,93 +7419,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1630450500}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &797968584 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1311290861401530, guid: 312b31977ed9b2d48a14849ebb8c7fb3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1832095579}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &797968585 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4303844821561524, guid: 312b31977ed9b2d48a14849ebb8c7fb3,
     type: 3}
   m_PrefabInstance: {fileID: 1832095579}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &797968586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 797968584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc452171c81e4f849aa07713a2a3d25d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  splineContainer: {fileID: 1376761768}
-  speed: 1
---- !u!54 &797968588
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 797968584}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &797968590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 797968584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d5c43a8662836c49a0bcf2ea1b0141c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isConnected: 0
---- !u!65 &797968591
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 797968584}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.3, y: 0.3, z: 0.3}
-  m_Center: {x: 0, y: 0.24, z: 0}
 --- !u!1 &806091921 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8640217ad50daaa45be074114797ba11,
@@ -7510,6 +7451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &806091924
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7832,6 +7774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &852942631
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8121,6 +8064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &899175258
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8423,6 +8367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &921188609
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8767,6 +8712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &941228322
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9258,6 +9204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &992163273
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9333,6 +9280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1000263586
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9796,6 +9744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1060440122
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9958,6 +9907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1080537331
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10893,6 +10843,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1190180605
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10968,6 +10919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1241424191
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11865,6 +11817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1290864444
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12030,6 +11983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1298392125
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12653,6 +12607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1350135184
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13419,6 +13374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1395990509
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13952,6 +13908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1458522226
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14593,6 +14550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1514041085
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14825,6 +14783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1525428915
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15617,6 +15576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1654359759
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16580,6 +16540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1711158367
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16812,6 +16773,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1747001925
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16887,6 +16849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1751715150
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17330,6 +17293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1782812337
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17985,14 +17949,6 @@ PrefabInstance:
       value: Toon Chicken
       objectReference: {fileID: 0}
     - target: {fileID: 4303844821561524, guid: 312b31977ed9b2d48a14849ebb8c7fb3, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.1663179
-      objectReference: {fileID: 0}
-    - target: {fileID: 4303844821561524, guid: 312b31977ed9b2d48a14849ebb8c7fb3, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.8747219
-      objectReference: {fileID: 0}
-    - target: {fileID: 4303844821561524, guid: 312b31977ed9b2d48a14849ebb8c7fb3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.5237675
       objectReference: {fileID: 0}
@@ -18032,26 +17988,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5367224079928209337, guid: 312b31977ed9b2d48a14849ebb8c7fb3,
+        type: 3}
+      propertyPath: splineContainer
+      value: 
+      objectReference: {fileID: 1376761768}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1311290861401530, guid: 312b31977ed9b2d48a14849ebb8c7fb3,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 797968586}
-    - targetCorrespondingSourceObject: {fileID: 1311290861401530, guid: 312b31977ed9b2d48a14849ebb8c7fb3,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 797968588}
-    - targetCorrespondingSourceObject: {fileID: 1311290861401530, guid: 312b31977ed9b2d48a14849ebb8c7fb3,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 797968590}
-    - targetCorrespondingSourceObject: {fileID: 1311290861401530, guid: 312b31977ed9b2d48a14849ebb8c7fb3,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 797968591}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 312b31977ed9b2d48a14849ebb8c7fb3, type: 3}
 --- !u!1 &1839685640 stripped
 GameObject:
@@ -18079,6 +18024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1839685643
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19069,6 +19015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1927435664
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19144,6 +19091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1938611080
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19780,6 +19728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &1996766577
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19855,6 +19804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &2008587815
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20372,6 +20322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &2065575907
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20775,6 +20726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &2100454697
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21151,6 +21103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 2
+  vol: 0.25
 --- !u!54 &2116846897
 Rigidbody:
   m_ObjectHideFlags: 0

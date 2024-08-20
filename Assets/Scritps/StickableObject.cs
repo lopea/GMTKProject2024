@@ -95,6 +95,11 @@ public class StickableObject : MonoBehaviour
             obj.GetComponent<AdjustBallCollider>().Expand(FindFarthestPoint(_meshCollider, obj.transform.position));
         else if(_boxCollider)
             obj.GetComponent<AdjustBallCollider>().Expand(FindFarthestPointBox(_boxCollider, obj.transform.position));
+
+        // remove for chicken
+        FollowPath removeMe = GetComponent<FollowPath>();
+        if (removeMe)
+            removeMe.enabled = false;
     }
 
     void OnCollisionEnter(Collision collision)
