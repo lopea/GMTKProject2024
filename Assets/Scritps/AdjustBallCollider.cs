@@ -15,5 +15,8 @@ public class AdjustBallCollider : MonoBehaviour
     {
         if (distance > _sphereCollider.radius * transform.localScale.x)
             _sphereCollider.radius = distance / transform.localScale.x * 0.55f;
+
+        // scale ball up
+        transform.GetChild(0).localScale = 2f * _sphereCollider.radius * Vector3.one;
     }
 }
