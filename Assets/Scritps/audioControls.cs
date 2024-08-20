@@ -8,15 +8,30 @@ public class audioControls : MonoBehaviour
 
     public static bool isMuted = false;
 
+    private static AudioSource aud;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        aud = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.R))
+        {
+            aud.volume = .24f * getVolumeMod();
+            aud.Play();
+
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        }
+
         if (Input.GetKeyDown(KeyCode.M))
             toggleMute();
 
