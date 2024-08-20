@@ -21,6 +21,9 @@ public class fuckFuckScaling : MonoBehaviour
     private ParticleSystem ptFx;
     private AudioSource aud;
 
+    [SerializeField]
+    private float vol = .25f;
+
     private void Awake()
     {
         fuckPlane = GameObject.FindGameObjectWithTag("planeController");
@@ -108,6 +111,7 @@ public class fuckFuckScaling : MonoBehaviour
         if (aud && !aud.isPlaying)
         {
             aud.pitch = Random.Range(.8f, 1.2f);
+            aud.volume = vol * audioControls.getVolumeMod();
             aud.Play();
         }
 
