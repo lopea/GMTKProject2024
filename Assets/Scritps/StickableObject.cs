@@ -87,8 +87,34 @@ public class StickableObject : MonoBehaviour
         return maxDistance;
     }
 
+    float CalculateMeshArea(MeshCollider meshCollider)
+    {
+        Mesh mesh = meshCollider.sharedMesh;
+        float area = 0;
+        Vector3[] vertices = mesh.vertices;
+        int[] triangles = mesh.triangles;
+
+        for (int i = 0; i < triangles.Length; i += 3)
+        {
+            Vector3 v0 = vertices[triangles[i]];
+            Vector3 v1 = vertices[triangles[i + 1]];
+            Vector3 v2 = vertices[triangles[i + 2]];
+
+            area += Vector3.Cross(v1 - v0, v2 - v0).magnitude * 0.5f;
+        }
+
+        return area;
+    }
+
+    float CalculateBoxVolume(BoxCollider boxCollider, Vector3 scale)
+    {
+        Vector3 size = boxCollider.size;
+        return size.x * scale.x * size.y * scale.y * size.z * scale.z;
+    }
+
     private void StickObjectTo(GameObject obj)
     {
+
         transform.SetParent(obj.transform);
 
         if(_meshCollider)
@@ -113,7 +139,23 @@ public class StickableObject : MonoBehaviour
         {
             return;
         }
-        
+
+        if (_meshCollider)
+        {
+            float meshArea = CalculateMeshArea(_meshCollider) * transform.localScale.x;
+            float ballArea = 4 * Mathf.PI * collision.gameObject.GetComponent<SphereCollider>().radius / collision.gameObject.transform.localScale.x;
+            if (meshArea > ballArea)
+                return;
+        }
+
+        if (_boxCollider)
+        {
+            float boxArea = CalculateBoxVolume(_boxCollider, transform.localScale);
+            float ballArea = 4 * Mathf.PI * collision.gameObject.GetComponent<SphereCollider>().radius * collision.gameObject.transform.localScale.x;
+            if (boxArea > ballArea)
+                return;
+        }
+
         var stickableObject = collision.gameObject.GetComponent<StickableObject>();
         var stickyBall = collision.gameObject.GetComponent<StickyBall>();
 
