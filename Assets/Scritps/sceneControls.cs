@@ -18,7 +18,7 @@ public class sceneControls : MonoBehaviour
 
     public void loadMainlevel()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LevelOne");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("fuckLevel");
     }
 
     public void quitGame()
