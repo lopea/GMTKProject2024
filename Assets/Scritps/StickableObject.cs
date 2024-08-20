@@ -151,7 +151,12 @@ public class StickableObject : MonoBehaviour
         if (_boxCollider)
         {
             float boxArea = CalculateBoxVolume(_boxCollider, transform.localScale);
-            float ballArea = 4 * Mathf.PI * collision.gameObject.GetComponent<SphereCollider>().radius * collision.gameObject.transform.localScale.x;
+
+            // sphere formula
+            float ballArea = 4 / 3 * Mathf.PI;
+            ballArea *= collision.gameObject.GetComponent<SphereCollider>().radius * collision.gameObject.transform.localScale.x;
+            ballArea *= collision.gameObject.GetComponent<SphereCollider>().radius * collision.gameObject.transform.localScale.x;
+
             if (boxArea > ballArea)
                 return;
         }
@@ -171,6 +176,8 @@ public class StickableObject : MonoBehaviour
                 stickyBall.AddObjectToAverageDistance(transform.position);
             }
 
+
+            // bro who put this shit in here?
 #if UNITY_EDITOR
             var mov = transform.parent.GetComponent<SimpleMovement>();
             if (null != mov)
