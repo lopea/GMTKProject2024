@@ -30,10 +30,8 @@ public class audioControls : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.R))
         {
-            aud.volume = .24f * getVolumeMod();
-            aud.Play();
-
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+            playFunnyAudio();
+            restartScene();
         }
 
         if (Input.GetKeyDown(KeyCode.M))
@@ -67,5 +65,16 @@ public class audioControls : MonoBehaviour
         volumeMod = Mathf.Clamp(volumeMod + add, 0, 1);
 
         bgm.volume = getVolumeMod();
+    }
+
+    public static void playFunnyAudio()
+    {
+        aud.volume = .24f * getVolumeMod();
+        aud.Play();
+    }
+
+    public static void restartScene()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 }

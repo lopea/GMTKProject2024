@@ -29,6 +29,9 @@ public class playerAudio : MonoBehaviour
     private static float hitStopTimer;
     private const float hitStopInterval = .03f;
 
+    [SerializeField]
+    private float deathFloor = -5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +47,7 @@ public class playerAudio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hitStopTimer > 0)
+        /*if (hitStopTimer > 0)
         {
             hitStopTimer -= Time.unscaledDeltaTime;
             Time.timeScale = 0;
@@ -52,6 +55,13 @@ public class playerAudio : MonoBehaviour
         else
         {
             Time.timeScale = 1;
+        }*/
+
+        // hard coded death floor
+        if (transform.position.y <= deathFloor || Input.GetKeyDown(KeyCode.R))
+        {
+            audioControls.playFunnyAudio();
+            transform.position = new Vector3(2, 5, -2);
         }
     }
 
