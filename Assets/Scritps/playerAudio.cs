@@ -26,8 +26,8 @@ public class playerAudio : MonoBehaviour
 
     private static GameObject fuckPlane;
 
-    private static float hitStopTimer;
-    private const float hitStopInterval = .03f;
+    //private static float hitStopTimer;
+    //private const float hitStopInterval = .03f;
 
     [SerializeField]
     private float deathFloor = -5f;
@@ -41,7 +41,7 @@ public class playerAudio : MonoBehaviour
         aud = GetComponent<AudioSource>();
         ptFx = GetComponent<ParticleSystem>();
 
-        hitStopTimer = 0;
+        //hitStopTimer = 0;
     }
 
     // Update is called once per frame

@@ -57,7 +57,7 @@ public class MapMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
         {
-            currAcceleration = 0;
+            currAcceleration = 0.1f;
         }
 
         if (mouseDelta.x != 0)
