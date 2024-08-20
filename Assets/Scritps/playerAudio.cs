@@ -80,6 +80,7 @@ public class playerAudio : MonoBehaviour
             aud.volume = maxVol;
         else
             aud.volume = maxVol * speed / maxVolSpeed;
+        aud.volume *= audioControls.getVolumeMod();
 
         return audClips[prevAudIndex];
     }
