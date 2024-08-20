@@ -17,6 +17,10 @@ public class AdjustBallCollider : MonoBehaviour
             _sphereCollider.radius = distance / transform.localScale.x * 0.55f;
 
         // scale ball up
-        transform.GetChild(0).localScale = 2f * _sphereCollider.radius * Vector3.one;
+        float setScale = 2f * _sphereCollider.radius;
+        transform.GetChild(0).localScale = setScale * Vector3.one;
+
+        // zoom cam out
+        CameraController.setCamDistance(setScale + 1f);
     }
 }
