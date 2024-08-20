@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AdjustBallCollider : MonoBehaviour
 {
-    public float percentage = 0.55f;
+    public float percentage = 0.1f;
     SphereCollider _sphereCollider;
     // Start is called before the first frame update
     void Start()

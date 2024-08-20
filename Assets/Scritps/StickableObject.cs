@@ -71,7 +71,6 @@ public class StickableObject : MonoBehaviour
         corners[6] = boxCollider.transform.TransformPoint(boxCollider.center + new Vector3(-extents.x, extents.y, extents.z));
         corners[7] = boxCollider.transform.TransformPoint(boxCollider.center + new Vector3(extents.x, extents.y, extents.z));
 
-        Vector3 farthestPoint = Vector3.zero;
         float maxDistance = 0f;
 
         foreach (Vector3 corner in corners)
@@ -80,7 +79,6 @@ public class StickableObject : MonoBehaviour
             if (distance > maxDistance)
             {
                 maxDistance = distance;
-                farthestPoint = corner;
             }
         }
 
@@ -109,7 +107,7 @@ public class StickableObject : MonoBehaviour
     float CalculateBoxVolume(BoxCollider boxCollider, Vector3 scale)
     {
         Vector3 size = boxCollider.size;
-        return size.x * scale.x * size.y * scale.y * size.z * scale.z;
+        return size.x * scale.x * size.y * scale.y * size.z * scale.z * 10;
     }
 
     private void StickObjectTo(GameObject obj)
