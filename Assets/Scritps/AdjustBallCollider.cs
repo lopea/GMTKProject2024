@@ -14,6 +14,6 @@ public class AdjustBallCollider : MonoBehaviour
     public void Expand(float distance)
     {
         if (distance > _sphereCollider.radius * transform.localScale.x)
-            _sphereCollider.radius = distance / transform.localScale.x * 0.75f;
+            _sphereCollider.radius = distance / transform.localScale.x * 0.55f;
     }
 }
