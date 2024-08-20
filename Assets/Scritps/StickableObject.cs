@@ -142,8 +142,13 @@ public class StickableObject : MonoBehaviour
 
         if (_meshCollider)
         {
-            float meshArea = CalculateMeshArea(_meshCollider) * transform.localScale.x;
-            float ballArea = 4 * Mathf.PI * collision.gameObject.GetComponent<SphereCollider>().radius / collision.gameObject.transform.localScale.x;
+            float meshArea = CalculateMeshArea(_meshCollider) * transform.localScale.x * transform.localScale.y * transform.localScale.z;
+            // sphere formula
+            float ballArea = 4 / 3 * Mathf.PI;
+            ballArea *= collision.gameObject.GetComponent<SphereCollider>().radius * collision.gameObject.transform.localScale.x;
+            ballArea *= collision.gameObject.GetComponent<SphereCollider>().radius * collision.gameObject.transform.localScale.x;
+            ballArea *= collision.gameObject.GetComponent<SphereCollider>().radius * collision.gameObject.transform.localScale.x;
+
             if (meshArea > ballArea)
                 return;
         }
@@ -154,6 +159,7 @@ public class StickableObject : MonoBehaviour
 
             // sphere formula
             float ballArea = 4 / 3 * Mathf.PI;
+            ballArea *= collision.gameObject.GetComponent<SphereCollider>().radius * collision.gameObject.transform.localScale.x;
             ballArea *= collision.gameObject.GetComponent<SphereCollider>().radius * collision.gameObject.transform.localScale.x;
             ballArea *= collision.gameObject.GetComponent<SphereCollider>().radius * collision.gameObject.transform.localScale.x;
 
