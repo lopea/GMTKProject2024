@@ -385,6 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splineContainer: {fileID: 0}
   speed: 1
+  startPos: 0
 --- !u!54 &212441251304030214
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -447,7 +448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKinetic: 0
   scaleBracket: 1
-  vol: 0.25
+  vol: 0.16
 --- !u!82 &8623336651272782559
 AudioSource:
   m_ObjectHideFlags: 0
@@ -459,8 +460,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 77630488597235847a9acf19dc32ab18, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.353
+  m_PlayOnAwake: 0
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0

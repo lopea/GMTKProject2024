@@ -12,6 +12,8 @@ public class audioControls : MonoBehaviour
 
     private static AudioSource bgm;
 
+    private static bool hasMusicEasedIn = false;
+
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -22,7 +24,7 @@ public class audioControls : MonoBehaviour
     {
         aud = GetComponent<AudioSource>();
         bgm = transform.GetChild(0).GetComponent<AudioSource>();
-
+        bgm.volume = 0;
     }
 
     // Update is called once per frame
@@ -42,6 +44,17 @@ public class audioControls : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Equals))
             changeVolume(.1f);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+
+        if (!hasMusicEasedIn)
+        {
+            if (bgm.volume < volumeMod && !isMuted)
+                bgm.volume += Time.deltaTime * .06f;
+            else
+                hasMusicEasedIn = true;
+        }
     }
 
     public static float getVolumeMod()
@@ -54,6 +67,9 @@ public class audioControls : MonoBehaviour
 
     public static void toggleMute()
     {
+        if (!hasMusicEasedIn)
+            volumeMod = bgm.volume;
+
         isMuted = !isMuted;
 
         // update music
