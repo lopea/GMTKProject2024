@@ -70,6 +70,7 @@ public class audioControls : MonoBehaviour
     public static void playFunnyAudio()
     {
         aud.volume = .24f * getVolumeMod();
+        aud.pitch = Random.Range(.8f, 1.2f);
         aud.Play();
     }
 
