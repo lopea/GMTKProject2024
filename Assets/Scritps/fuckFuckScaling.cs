@@ -63,7 +63,7 @@ public class fuckFuckScaling : MonoBehaviour
     private void OnScaleChange()
     {
         // if the same scale, check what it should be
-        if (playerScaleBracket == scaleBracket)
+        /*if (playerScaleBracket == scaleBracket)
         {
             rb.isKinematic = !isKinetic;
             rb.useGravity = isKinetic;
@@ -76,7 +76,10 @@ public class fuckFuckScaling : MonoBehaviour
             else
                 rb.isKinematic = false;
             rb.useGravity = !rb.isKinematic;
-        }
+        }*/
+
+        rb.isKinematic = !isKinetic;
+        rb.useGravity = isKinetic;
 
         if (rb.isKinematic)
             transform.SetParent(fuckPlane.transform);
