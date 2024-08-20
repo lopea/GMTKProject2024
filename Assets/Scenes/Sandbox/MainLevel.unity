@@ -19732,6 +19732,11 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1409761464}
+    - target: {fileID: 5473964402791867790, guid: 44cdacb4399013c4f9f390b80c5c1fb7,
+        type: 3}
+      propertyPath: movement
+      value: 
+      objectReference: {fileID: 2119016365}
     - target: {fileID: 6387823566912173053, guid: 44cdacb4399013c4f9f390b80c5c1fb7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21316,7 +21321,7 @@ GameObject:
   - component: {fileID: 2119016363}
   m_Layer: 0
   m_Name: Plane (1)
-  m_TagString: Untagged
+  m_TagString: planeController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21454,6 +21459,8 @@ MonoBehaviour:
   MaxAngle: 45
   Speed: 0.3
   resetSpeed: 10
+  AccelerationSpeed: 2
+  MaxAcceleration: 10
 --- !u!64 &2119016366
 MeshCollider:
   m_ObjectHideFlags: 0
