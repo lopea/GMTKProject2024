@@ -16,12 +16,18 @@ public class FollowPath : MonoBehaviour
     private float t = 0f;
     private bool disableMovement;
 
+    [SerializeField]
+    [Range(0f, 1f)]
+    private float startPos;
+
     void Start()
     {
         if (splineContainer != null)
         {
             spline = splineContainer.Spline;
         }
+
+        t = startPos;
     }
 
     void Update()
