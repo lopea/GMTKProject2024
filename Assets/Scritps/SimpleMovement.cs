@@ -22,22 +22,22 @@ public class SimpleMovement : MonoBehaviour
     {
         var speed = 20.0f * movementModifier * Time.deltaTime;
         Console.WriteLine(speed);
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             _rb.AddForce(Vector3.forward * speed);
         }
         
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             _rb.AddForce(Vector3.back * speed);
         }
         
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             _rb.AddForce(Vector3.left * speed);
         }
         
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             _rb.AddForce(Vector3.right * speed);
         }

@@ -29,6 +29,11 @@ public class StickableObject : MonoBehaviour
         
     }
 
+    private void StickObjectTo(Transform objTransform)
+    {
+        transform.SetParent(objTransform);
+    }
+    
     void OnCollisionEnter(Collision collision)
     {
         if (isConnected)
@@ -48,11 +53,11 @@ public class StickableObject : MonoBehaviour
             null != stickyBall)
         {
             if (stickableObject != null)
-                transform.SetParent(stickableObject.transform.parent);
+                StickObjectTo(stickableObject.transform.parent);
 
             if (stickyBall != null)
             {
-                transform.SetParent(stickyBall.transform);
+                StickObjectTo(stickyBall.transform);
                 stickyBall.AddObjectToAverageDistance(transform.position);
             }
 
