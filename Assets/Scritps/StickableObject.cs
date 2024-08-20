@@ -55,6 +55,16 @@ public class StickableObject : MonoBehaviour
         return maxDistance;
     }
 
+    Transform FindRoot(Transform obj)
+    {
+        Transform currentTransform = obj.transform;
+        while (currentTransform.parent != null)
+        {
+            currentTransform = currentTransform.parent;
+        }
+        return currentTransform;
+    }
+
     float FindFarthestPointBox(BoxCollider boxCollider, Vector3 center)
     {
         Vector3[] corners = new Vector3[8];
@@ -84,6 +94,8 @@ public class StickableObject : MonoBehaviour
 
         return maxDistance;
     }
+
+
 
     float CalculateMeshArea(MeshCollider meshCollider)
     {
@@ -116,9 +128,9 @@ public class StickableObject : MonoBehaviour
         transform.SetParent(obj.transform);
 
         if(_meshCollider)
-            obj.GetComponent<AdjustBallCollider>().Expand(FindFarthestPoint(_meshCollider, obj.transform.position));
+            obj.GetComponent<AdjustBallCollider>().Expand(FindFarthestPoint(_meshCollider, FindRoot(obj.transform).position));
         else if(_boxCollider)
-            obj.GetComponent<AdjustBallCollider>().Expand(FindFarthestPointBox(_boxCollider, obj.transform.position));
+            obj.GetComponent<AdjustBallCollider>().Expand(FindFarthestPointBox(_boxCollider, FindRoot(obj.transform).position));
 
         // remove for chicken
         FollowPath removeMe = GetComponent<FollowPath>();
