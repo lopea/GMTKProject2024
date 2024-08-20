@@ -54,11 +54,34 @@ public class MapMovement : MonoBehaviour
     {
         var deltaSpeed = (Speed * currAcceleration) * Time.deltaTime;
         var mouseDelta = playerInput.Player.MoveMap.ReadValue<Vector2>() * deltaSpeed;
-       
-        
-        if (Vector2.zero != mouseDelta)
+
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+        {
+            currAcceleration = 0;
+        }
+
+        if (mouseDelta.x != 0)
         {
             currHorizontalAngle = Mathf.Clamp(currHorizontalAngle + mouseDelta.x, -MaxAngle, MaxAngle);
+            currAcceleration += Mathf.Clamp(AccelerationSpeed * Time.deltaTime, 1, MaxAcceleration);
+            dir = new Vector3(mouseDelta.x, 0, mouseDelta.y);
+            dir.Normalize();
+        }
+        else
+        {
+            dir = Vector3.zero;
+
+            if (Mathf.Abs(currHorizontalAngle) > 1f)
+            {
+                currHorizontalAngle -= Mathf.Sign(currHorizontalAngle) * resetSpeed * Time.deltaTime;
+                if (Mathf.Abs(currHorizontalAngle) < .9f)
+                    currHorizontalAngle = 0.0f;
+            }
+
+        }
+
+        if (mouseDelta.y != 0)
+        {
             currVerticalAngle = Mathf.Clamp(currVerticalAngle + mouseDelta.y, -MaxAngle, MaxAngle);
             currAcceleration += Mathf.Clamp(AccelerationSpeed * Time.deltaTime, 1, MaxAcceleration);
             dir = new Vector3(mouseDelta.x, 0, mouseDelta.y);
@@ -67,26 +90,17 @@ public class MapMovement : MonoBehaviour
         else
         {
             dir = Vector3.zero;
-            
-            if (Mathf.Abs(currHorizontalAngle) > 1f)
-            {
-                currHorizontalAngle -= Mathf.Sign(currHorizontalAngle) * resetSpeed * Time.deltaTime;
-                if (Mathf.Abs(currHorizontalAngle) < .9f)
-                    currHorizontalAngle = 0.0f;
-            }
 
-            if (Mathf.Abs( currVerticalAngle) > 1f)
+            if (Mathf.Abs(currVerticalAngle) > 1f)
             {
                 currVerticalAngle -= Mathf.Sign(currVerticalAngle) * resetSpeed * Time.deltaTime;
                 if (Mathf.Abs(currVerticalAngle) < .9f)
                     currVerticalAngle = 0.0f;
             }
-
-            currAcceleration = 1.0f;
         }
 
         //rb.constraints = RigidbodyConstraints.FreezeRotationY;  
-        
+
 
 
         //get each axis to rotate the map (horizontal = sideways, vertical = forward/backward)
